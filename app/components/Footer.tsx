@@ -14,8 +14,8 @@ export default function Footer() {
         </div>
         <div style={{ display: 'flex', gap: '32px' }}>
           {[
-            { label: 'GitHub', href: 'https://github.com/sahilballewar' },
-            { label: 'LinkedIn', href: 'https://linkedin.com/in/sahil-ballewar' },
+            { label: 'GitHub', href: 'https://github.com/Sam1377' },
+            { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sahil-ballewar-a888a632a/' },
             { label: 'Email', href: 'mailto:sahil.magfirm@gmail.com' },
           ].map(l => (
             <a
