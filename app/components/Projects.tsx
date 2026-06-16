@@ -20,7 +20,7 @@ const projects = [
     ],
     stack: ['Apache Kafka', 'PySpark', 'Databricks', 'Delta Lake', 'Python', 'SQL'],
     architecture: ['Kafka Producer', '→', 'Bronze Layer', '→', 'Silver Layer', '→', 'Gold Layer', '→', 'BI Dashboards'],
-    github: 'https://github.com/sahilballewar',
+    github: 'https://github.com/Sam1377/StockMarket_Data_Pipeline',
     featured: true,
   },
   {
@@ -39,7 +39,7 @@ const projects = [
     ],
     stack: ['AWS Lambda', 'Amazon S3', 'AWS Glue', 'Amazon Athena', 'Apache Airflow', 'Python'],
     architecture: ['Spotify API', '→', 'Lambda', '→', 'S3 Raw Zone', '→', 'Glue Crawler', '→', 'Athena'],
-    github: 'https://github.com/sahilballewar',
+    github: 'https://github.com/Sam1377/Spotify_Data_Pipeline',
     featured: true,
   },
   {
@@ -58,7 +58,7 @@ const projects = [
     ],
     stack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Socket.io', 'CodeMirror 6'],
     architecture: ['Client A', '↔', 'Socket.io Server', '↔', 'Client B', '→', 'MongoDB'],
-    github: 'https://github.com/sahilballewar',
+    github: 'https://github.com/Sam1377/nexus_version1',
     featured: false,
   },
 ];
