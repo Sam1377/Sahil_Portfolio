@@ -38,7 +38,7 @@ const experiences = [
     type: 'Leadership',
     color: '#4d79ff',
     achievements: [
-      'Led a team of 215+ members and managed 30+ events over 2 days, ensuring smooth coordination across all functions.',
+      'Led a team of 215+ members and managed 30+ events over 2 days, ensuring smooth coordination.',
       'Managed budgeting and operations, reducing execution delays by 50% through structured documentation.',
       'Secured sponsorships worth ₹7,00,000 by presenting event proposals to external stakeholders.',
     ],
@@ -47,7 +47,7 @@ const experiences = [
 ];
 
 export default function Experience() {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
 
   return (
     <section id="experience" className="section-padding relative" ref={ref}>
@@ -56,110 +56,62 @@ export default function Experience() {
       }} />
 
       <div className="section-container">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
+        <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}
+          className="mb-12 sm:mb-20">
           <div className="section-label mb-4">Experience</div>
           <h2 className="font-black text-white tracking-tight leading-tight" style={{ fontSize: 'clamp(36px, 5vw, 56px)' }}>
-            Where I&apos;ve built<br />
-            <span className="gradient-text">real-world impact</span>
+            Where I&apos;ve built<br /><span className="gradient-text">real-world impact</span>
           </h2>
         </motion.div>
 
         {/* Timeline */}
         <div className="relative">
-          {/* Vertical line */}
-          <div
-            className="absolute top-0 bottom-0"
-            style={{
-              left: '15px',
-              width: '1px',
-              background: 'linear-gradient(180deg, #00f5ff 0%, #b44dff 50%, transparent 100%)',
-            }}
-          />
+          {/* Vertical line — offset for mobile */}
+          <div className="absolute top-0 bottom-0"
+            style={{ left: '8px', width: '1px', background: 'linear-gradient(180deg, #00f5ff 0%, #b44dff 50%, transparent 100%)' }} />
 
-          <div className="space-y-16 pl-16">
+          <div className="space-y-8 sm:space-y-16 pl-8 sm:pl-16">
             {experiences.map((exp, i) => (
-              <motion.div
-                key={exp.company}
-                initial={{ opacity: 0, x: -24 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: i * 0.15 }}
-                className="relative"
-              >
-                {/* Dot */}
-                <div
-                  className="absolute flex items-center justify-center rounded-full border-2"
+              <motion.div key={exp.company}
+                initial={{ opacity: 0, x: -24 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: i * 0.15 }}
+                className="relative">
+                {/* Timeline dot */}
+                <div className="absolute flex items-center justify-center rounded-full border-2"
                   style={{
-                    left: '-46px',
-                    top: '28px',
-                    width: '16px',
-                    height: '16px',
-                    borderColor: exp.color,
-                    background: '#050510',
-                    boxShadow: `0 0 16px ${exp.color}55`,
-                  }}
-                >
-                  <div className="rounded-full" style={{ width: '6px', height: '6px', background: exp.color }} />
+                    left: '-36px', top: '22px',
+                    width: '14px', height: '14px',
+                    borderColor: exp.color, background: '#050510',
+                    boxShadow: `0 0 14px ${exp.color}55`,
+                  }}>
+                  <div className="rounded-full" style={{ width: '5px', height: '5px', background: exp.color }} />
                 </div>
 
                 {/* Card */}
-                <div
-                  className="glass-card rounded-2xl transition-all duration-300"
-                  style={{
-                    border: `1px solid ${exp.color}20`,
-                    padding: '36px 40px',
-                  }}
-                  onMouseEnter={e => {
-                    (e.currentTarget as HTMLElement).style.borderColor = `${exp.color}40`;
-                    (e.currentTarget as HTMLElement).style.boxShadow = `0 0 40px ${exp.color}10`;
-                  }}
-                  onMouseLeave={e => {
-                    (e.currentTarget as HTMLElement).style.borderColor = `${exp.color}20`;
-                    (e.currentTarget as HTMLElement).style.boxShadow = '';
-                  }}
-                >
+                <div className="glass-card rounded-2xl transition-all duration-300"
+                  style={{ border: `1px solid ${exp.color}20`, padding: 'clamp(20px, 5vw, 36px) clamp(16px, 5vw, 40px)' }}>
+
                   {/* Header */}
-                  <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4 mb-5 sm:mb-6">
                     <div>
-                      <span
-                        className="inline-block text-xs font-mono px-3 py-1 rounded-full mb-3"
-                        style={{
-                          background: `${exp.color}12`,
-                          color: exp.color,
-                          border: `1px solid ${exp.color}28`,
-                          letterSpacing: '0.08em',
-                        }}
-                      >
+                      <span className="inline-block text-xs font-mono px-3 py-1 rounded-full mb-2 sm:mb-3"
+                        style={{ background: `${exp.color}12`, color: exp.color, border: `1px solid ${exp.color}28`, letterSpacing: '0.08em' }}>
                         {exp.type}
                       </span>
-                      <h3 className="text-white font-bold mb-1" style={{ fontSize: '1.2rem' }}>{exp.role}</h3>
-                      <div className="font-medium" style={{ color: exp.color, fontSize: '0.95rem' }}>{exp.company}</div>
+                      <h3 className="text-white font-bold mb-1" style={{ fontSize: 'clamp(1rem, 4vw, 1.2rem)' }}>{exp.role}</h3>
+                      <div className="font-medium" style={{ color: exp.color, fontSize: 'clamp(0.85rem, 3.5vw, 0.95rem)' }}>{exp.company}</div>
                     </div>
-                    <div
-                      className="font-mono text-slate-500 rounded-xl px-4 py-2"
-                      style={{
-                        fontSize: '12px',
-                        background: 'rgba(255,255,255,0.03)',
-                        border: '1px solid rgba(255,255,255,0.07)',
-                        whiteSpace: 'nowrap',
-                      }}
-                    >
+                    <div className="font-mono text-slate-500 rounded-xl px-3 sm:px-4 py-1.5 sm:py-2 self-start"
+                      style={{ fontSize: '11px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', whiteSpace: 'nowrap' }}>
                       {exp.period}
                     </div>
                   </div>
 
                   {/* Achievements */}
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-2.5 sm:space-y-3 mb-5 sm:mb-8">
                     {exp.achievements.map((a, ai) => (
-                      <li key={ai} className="flex gap-3 text-slate-400 leading-relaxed" style={{ fontSize: '0.93rem' }}>
-                        <span
-                          className="flex-shrink-0 rounded-full mt-2"
-                          style={{ width: '4px', height: '4px', background: exp.color, marginTop: '9px' }}
-                        />
+                      <li key={ai} className="flex gap-2.5 sm:gap-3 text-slate-400 leading-relaxed"
+                        style={{ fontSize: 'clamp(0.82rem, 3vw, 0.93rem)' }}>
+                        <span className="flex-shrink-0 rounded-full" style={{ width: '4px', height: '4px', background: exp.color, marginTop: '8px' }} />
                         {a}
                       </li>
                     ))}
@@ -168,15 +120,8 @@ export default function Experience() {
                   {/* Stack */}
                   <div className="flex flex-wrap gap-2">
                     {exp.stack.map(s => (
-                      <span
-                        key={s}
-                        className="tech-badge text-slate-500"
-                        style={{
-                          borderColor: 'rgba(255,255,255,0.07)',
-                          background: 'rgba(255,255,255,0.03)',
-                          fontSize: '11px',
-                        }}
-                      >
+                      <span key={s} className="tech-badge text-slate-500"
+                        style={{ borderColor: 'rgba(255,255,255,0.07)', background: 'rgba(255,255,255,0.03)', fontSize: '11px' }}>
                         {s}
                       </span>
                     ))}
