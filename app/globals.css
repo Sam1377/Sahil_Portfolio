@@ -143,7 +143,7 @@ body {
   color: var(--neon-cyan);
 }
 
-/* Section spacing — consistent breathing room */
+/* Section spacing â€” consistent breathing room */
 .section-padding {
   padding-top: 140px;
   padding-bottom: 140px;
@@ -153,4 +153,43 @@ body {
   .section-padding { padding-top: 80px; padding-bottom: 80px; }
   body { cursor: auto; }
   .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* â”€â”€ Mobile optimizations â”€â”€ */
+
+/* Larger tap targets on mobile */
+@media (max-width: 768px) {
+  /* Cursor off */
+  body { cursor: auto; }
+  .cursor-dot, .cursor-ring { display: none; }
+
+  /* Section padding tighter */
+  .section-padding { padding-top: 72px; padding-bottom: 72px; }
+
+  /* Section container full bleed with safe padding */
+  .section-container { padding-left: 20px; padding-right: 20px; }
+
+  /* Prevent horizontal overflow */
+  section { overflow-x: hidden; }
+
+  /* Touch-friendly links */
+  a, button { -webkit-tap-highlight-color: transparent; }
+
+  /* Form inputs larger on mobile */
+  input, textarea, select {
+    font-size: 16px !important; /* prevents iOS zoom */
+    -webkit-appearance: none;
+    border-radius: 12px;
+  }
+
+  /* Tech badges slightly bigger touch target */
+  .tech-badge { padding: 5px 12px; font-size: 11px; }
+}
+
+/* Safe area for notch devices */
+@supports (padding: max(0px)) {
+  .fixed.bottom-0, footer {
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+  }
+  nav { padding-top: max(0px, env(safe-area-inset-top)); }
 }
