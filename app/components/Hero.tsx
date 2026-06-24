@@ -33,184 +33,97 @@ export default function Hero() {
   }, [displayed, deleting, roleIdx]);
 
   return (
-    <section
-      id="hero"
-      style={{
-        position: 'relative',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        overflow: 'hidden',
-      }}
-      className="grid-bg"
-    >
+    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden grid-bg">
       <NeuralBackground />
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'radial-gradient(ellipse 65% 50% at 50% 45%, rgba(0,245,255,0.05) 0%, transparent 65%)',
+      }} />
       <div className="scan-effect" />
 
-      {/* subtle glow center */}
-      <div style={{
-        position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: 'radial-gradient(ellipse 60% 50% at 50% 45%, rgba(0,245,255,0.04) 0%, transparent 70%)',
-      }} />
+      <div className="relative z-10 w-full section-container text-center px-5 sm:px-8">
 
-      <div style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: '900px', margin: '0 auto', padding: '0 40px', textAlign: 'center' }}>
-
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          style={{ display: 'flex', justifyContent: 'center', marginBottom: '40px', marginTop: '80px' }}
-        >
-          <div className="glass-card neon-border-cyan" style={{
-            display: 'inline-flex', alignItems: 'center', gap: '10px',
-            padding: '10px 22px', borderRadius: '100px',
-          }}>
-            <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#34d399', display: 'block', animation: 'pulse 2s infinite' }} />
-            <span style={{ fontSize: '11px', letterSpacing: '0.28em', color: '#94a3b8', fontFamily: 'monospace', textTransform: 'uppercase' }}>
-              Available for Opportunities
+        {/* Status badge */}
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex justify-center mb-8 sm:mb-10">
+          <div className="glass-card inline-flex items-center gap-2 sm:gap-2.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full"
+            style={{ border: '1px solid rgba(0,245,255,0.25)', boxShadow: '0 0 20px rgba(0,245,255,0.06)' }}>
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+            </span>
+            <span className="font-mono uppercase text-slate-400" style={{ fontSize: '10px', letterSpacing: '0.18em' }}>
+              Available for opportunities
             </span>
           </div>
         </motion.div>
 
-        {/* Name block */}
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.25 }}
-          style={{ marginBottom: '24px', lineHeight: 1 }}
-        >
-          <div className="gradient-text" style={{
-            fontSize: 'clamp(52px, 8vw, 96px)',
-            fontWeight: 900,
-            letterSpacing: '-0.03em',
-            lineHeight: 0.95,
-            display: 'block',
-          }}>
-            Sahil
-          </div>
-          <div style={{
-            fontSize: 'clamp(52px, 8vw, 96px)',
-            fontWeight: 900,
-            letterSpacing: '-0.03em',
-            lineHeight: 0.95,
-            color: '#ffffff',
-            display: 'block',
-            marginTop: '8px',
-          }}>
-            Ballewar
-          </div>
-        </motion.div>
+        {/* Name */}
+        <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }}
+          className="font-black tracking-tighter leading-[0.95] mb-5 sm:mb-6"
+          style={{ fontSize: 'clamp(52px, 14vw, 116px)' }}>
+          <span className="gradient-text">Sahil</span>
+          <br />
+          <span className="text-white">Ballewar</span>
+        </motion.h1>
 
         {/* Typewriter */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.45 }}
-          style={{
-            height: '36px', display: 'flex', alignItems: 'center',
-            justifyContent: 'center', marginBottom: '28px',
-          }}
-        >
-          <span style={{ fontFamily: 'monospace', fontSize: '1.2rem', fontWeight: 600, color: '#00f5ff', textShadow: '0 0 20px rgba(0,245,255,0.4)' }}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
+          className="flex items-center justify-center mb-5 sm:mb-6" style={{ minHeight: '2.2rem' }}>
+          <span className="font-mono font-semibold neon-text-cyan" style={{ fontSize: 'clamp(0.95rem, 4vw, 1.2rem)' }}>
             {displayed}
           </span>
           <span className="typewriter-cursor" />
         </motion.div>
 
         {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.55 }}
-          style={{
-            color: '#64748b', fontSize: '1.05rem', lineHeight: 1.75,
-            maxWidth: '520px', margin: '0 auto 52px', textAlign: 'center',
-          }}
-        >
-          B.Tech ECE @ IIIT Nagpur · Building real-time data systems,
-          AI-powered pipelines, and scalable cloud infrastructure.
+        <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
+          className="text-slate-500 mx-auto mb-10 sm:mb-12 leading-relaxed px-2"
+          style={{ fontSize: 'clamp(0.88rem, 3.5vw, 1rem)', maxWidth: '420px' }}>
+          B.Tech ECE @ IIIT Nagpur · Building real-time data systems, AI-powered pipelines, and scalable cloud infrastructure.
         </motion.p>
 
         {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.65 }}
-          style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '80px' }}
-        >
-          <a
-            href="#projects"
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}
+          className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 mb-14 sm:mb-20 px-2">
+          <a href="#projects"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-200"
             style={{
-              padding: '14px 34px', borderRadius: '12px',
-              background: 'linear-gradient(135deg, #00f5ff, #b44dff)',
-              color: '#050510', fontWeight: 700, fontSize: '0.92rem',
-              letterSpacing: '0.02em', textDecoration: 'none', display: 'inline-block',
-              transition: 'opacity 0.2s',
-            }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = '0.85'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = '1'; }}
-          >
+              background: 'linear-gradient(135deg, #00f5ff, #b44dff)', color: '#050510',
+              textDecoration: 'none', padding: '14px 28px', fontSize: '0.9rem',
+              boxShadow: '0 0 28px rgba(0,245,255,0.2)', letterSpacing: '0.02em',
+            }}>
             View Projects →
           </a>
-          <a
-            href="/Sahil_Ballewar_Resume.pdf"
-            download
-            className="glass-card neon-border-cyan"
-            style={{
-              padding: '14px 34px', borderRadius: '12px',
-              color: '#00f5ff', fontWeight: 700, fontSize: '0.92rem',
-              textDecoration: 'none', display: 'inline-block',
-              transition: 'background 0.2s',
-            }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(0,245,255,0.07)'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = ''; }}
-          >
+          <a href="/Sahil_Ballewar_Resume.pdf" download
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 glass-card font-semibold rounded-xl transition-all duration-200"
+            style={{ border: '1px solid rgba(0,245,255,0.3)', color: 'var(--neon-cyan)', textDecoration: 'none', padding: '14px 28px', fontSize: '0.9rem' }}>
             Download Resume ↓
           </a>
-          <a
-            href="#contact"
-            style={{
-              padding: '14px 34px', borderRadius: '12px',
-              color: '#64748b', fontWeight: 700, fontSize: '0.92rem',
-              textDecoration: 'none', display: 'inline-block',
-              transition: 'color 0.2s',
-            }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#e2e8f0'; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#64748b'; }}
-          >
+          <a href="#contact"
+            className="w-full sm:w-auto inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200"
+            style={{ color: '#64748b', textDecoration: 'none', padding: '14px 28px', fontSize: '0.9rem' }}>
             Contact Me
           </a>
         </motion.div>
 
-        {/* Stats strip */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.85 }}
-          style={{
-            display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0',
-            borderTop: '1px solid rgba(255,255,255,0.05)',
-            paddingTop: '40px',
-          }}
-        >
+        {/* Stats */}
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 }}
+          className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-0">
           {[
             { value: '3+', label: 'Projects Built' },
             { value: '30%', label: 'Data Efficiency ↑' },
             { value: '184K+', label: 'Records / Day' },
-            { value: '99.87%', label: 'Data Quality' },
-          ].map((s, i) => (
-            <div key={s.label} style={{
-              textAlign: 'center',
-              padding: '0 40px',
-              borderRight: i < 3 ? '1px solid rgba(255,255,255,0.05)' : 'none',
-            }}>
-              <div className="gradient-text" style={{ fontSize: '2rem', fontWeight: 900, lineHeight: 1 }}>
+            { value: '99.87%', label: 'Data Quality Score' },
+          ].map((s, i, arr) => (
+            <div key={s.label} className="text-center py-4 px-5 sm:px-8"
+              style={{
+                borderRight: i % 2 === 0 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                borderBottom: i < 2 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+              }}>
+              <div className="font-black gradient-text" style={{ fontSize: 'clamp(1.4rem, 5vw, 1.75rem)', lineHeight: 1.1 }}>
                 {s.value}
               </div>
-              <div style={{ fontSize: '11px', color: '#475569', marginTop: '8px', letterSpacing: '0.06em' }}>
+              <div className="text-slate-600 mt-1.5 tracking-wide" style={{ fontSize: '0.68rem', letterSpacing: '0.05em' }}>
                 {s.label}
               </div>
             </div>
@@ -218,20 +131,16 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.1 }}
-        style={{
-          position: 'absolute', bottom: '36px', left: '50%', transform: 'translateX(-50%)',
-          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px',
-        }}
-      >
-        <span style={{ fontSize: '10px', letterSpacing: '0.3em', color: '#334155', fontFamily: 'monospace', textTransform: 'uppercase' }}>
-          Scroll
-        </span>
-        <div style={{ width: '1px', height: '40px', background: 'linear-gradient(to bottom, #334155, transparent)' }} />
+      {/* Scroll indicator — hidden on mobile */}
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.3 }}
+        className="hidden sm:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-3">
+        <span className="text-slate-700 font-mono uppercase tracking-[0.35em]" style={{ fontSize: '9px' }}>Scroll</span>
+        <div className="w-px h-12 relative overflow-hidden" style={{ background: 'rgba(51,65,85,0.4)' }}>
+          <motion.div className="absolute top-0 left-0 w-full"
+            style={{ height: '40%', background: 'linear-gradient(to bottom, var(--neon-cyan), transparent)' }}
+            animate={{ y: ['0%', '160%'] }}
+            transition={{ duration: 1.4, repeat: Infinity, ease: 'linear' }} />
+        </div>
       </motion.div>
     </section>
   );
