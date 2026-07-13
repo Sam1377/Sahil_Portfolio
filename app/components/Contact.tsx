@@ -40,28 +40,29 @@ export default function Contact() {
       <div className="section-container">
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}
-          className="text-center mb-14 sm:mb-20">
+          className="text-center mb-14 md:mb-20 w-full">
           <div className="section-label mb-4">Contact</div>
           <h2 className="font-black text-white tracking-tight leading-[1.08] mb-5"
             style={{ fontSize: 'clamp(36px, 5vw, 56px)' }}>
             Let&apos;s build something<br /><span className="gradient-text">extraordinary</span>
           </h2>
-          <p className="text-slate-500 mx-auto leading-relaxed text-center px-4 sm:px-2" style={{ fontSize: '15px', maxWidth: '400px', width: '100%' }}>
-            Open to data engineering roles, full-stack opportunities, and interesting collaborations.
+          <p className="text-slate-500 mx-auto leading-relaxed text-center px-4" style={{ fontSize: '15px', maxWidth: '440px', width: '100%' }}>
+            Open to data engineering roles, full-stack opportunities, AI/PM roles, and interesting collaborations.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-10 sm:gap-16 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 max-w-4xl mx-auto">
           {/* Contact info */}
-          <motion.div initial={{ opacity: 0, x: -24 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.1 }}>
-            <div className="font-semibold uppercase text-slate-600 mb-5 sm:mb-6"
+          <motion.div initial={{ opacity: 0, x: -24 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.1 }}
+            className="w-full">
+            <div className="font-semibold uppercase text-slate-600 mb-5 md:mb-6"
               style={{ fontSize: '10px', letterSpacing: '0.3em' }}>
               Reach Me At
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 w-full">
               {contacts.map((c) => (
                 <a key={c.label} href={c.href} target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-3 sm:gap-4 glass-card rounded-xl group transition-all duration-200"
+                  className="flex items-center gap-3 md:gap-4 glass-card rounded-xl group transition-all duration-200 w-full"
                   style={{ border: `1px solid ${c.color}1a`, padding: '13px 14px', textDecoration: 'none' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = `${c.color}35`; (e.currentTarget as HTMLElement).style.transform = 'translateX(3px)'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = `${c.color}1a`; (e.currentTarget as HTMLElement).style.transform = 'translateX(0)'; }}>
@@ -78,19 +79,20 @@ export default function Contact() {
               ))}
             </div>
             <a href="/Sahil_Ballewar_Resume.pdf" download
-              className="flex items-center justify-center gap-2 mt-5 sm:mt-6 rounded-xl font-semibold transition-all duration-200"
+              className="flex items-center justify-center gap-2 mt-5 md:mt-6 w-full rounded-xl font-semibold transition-all duration-200"
               style={{ background: 'linear-gradient(135deg, rgba(0,245,255,0.08), rgba(180,77,255,0.08))', border: '1px solid rgba(0,245,255,0.2)', color: 'var(--neon-cyan)', textDecoration: 'none', padding: '13px 20px', fontSize: '13px' }}>
               ↓ Download Resume
             </a>
           </motion.div>
 
           {/* Form */}
-          <motion.div initial={{ opacity: 0, x: 24 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }}>
-            <div className="font-semibold uppercase text-slate-600 mb-5 sm:mb-6"
+          <motion.div initial={{ opacity: 0, x: 24 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-full">
+            <div className="font-semibold uppercase text-slate-600 mb-5 md:mb-6"
               style={{ fontSize: '10px', letterSpacing: '0.3em' }}>
               Send a Message
             </div>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
               <div>
                 <label className="block text-slate-600 uppercase mb-2" style={{ fontSize: '10px', letterSpacing: '0.2em' }}>Name</label>
                 <input type="text" placeholder="Your name" value={form.name}
