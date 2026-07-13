@@ -58,6 +58,42 @@ const projects = [
     github: 'https://github.com/Sam1377/nexus_version1',
     featured: false,
   },
+  {
+    id: 'aeroprep', number: '04',
+    title: 'AeroPrep AI — Interview Prep Platform',
+    tagline: 'AI-native interview prep: resume gap analysis, adaptive roadmaps, and a mock interviewer that pushes back',
+    color: '#00e6a8',
+    problem: 'Interview prep is generic and scattered — static question banks, scavenger-hunt company research, and mock interviews that are just a script, with most tools assuming weeks of notice that real candidates rarely get.',
+    solution: 'Built a full-stack Next.js + FastAPI platform with a mission-based data model so users prep for multiple companies in parallel. Groq-powered LLM features generate resume-vs-JD gap analysis, a role-aware question bank, a day-by-day flight plan that compresses down to 1-day crunch mode, and a conversational voice-enabled mock interviewer.',
+    impact: [
+      'Mission-based architecture lets users prep for multiple companies without losing progress',
+      'Role- and company-aware question generation (DSA/SQL/case studies) computed with zero LLM calls',
+      'Every AI feature degrades gracefully to a working demo mode with no API key set',
+      'Voice-enabled mock interviews with adaptive follow-up questions and a scored debrief',
+    ],
+    stack: ['Next.js 14', 'FastAPI', 'TypeScript', 'Groq', 'ChromaDB', 'Framer Motion'],
+    architecture: ['Resume/JD', '→', 'Gap Analysis', '→', 'Flight Plan', '→', 'Mock Interview', '→', 'Debrief'],
+    github: 'https://github.com/Sam1377/aeroprep-ai',
+    featured: true,
+  },
+  {
+    id: 'reviews', number: '05',
+    title: 'Review Intelligence Dashboard',
+    tagline: 'Hybrid classification pipeline turning messy customer reviews into a self-expanding issue taxonomy at a fraction of the LLM cost',
+    color: '#ffb84d',
+    problem: 'Turning thousands of raw customer reviews into real product insight is expensive and unreliable: keyword dictionaries collapse past ~25 categories, sending every review through an LLM doesn\'t scale, and rigid taxonomies miss emerging issues no one has labeled yet.',
+    solution: 'Built a 5-layer hybrid pipeline where LLM cost scales with the number of distinct issues, not reviews: keyword matching, client-side MiniLM embeddings, unsupervised clustering to surface emerging issues, one LLM call per discovered cluster, and an honest fallback for true singletons. Byte-level file ingestion detects real format regardless of extension, and executive summaries are grounded in precomputed KPIs rather than raw text.',
+    impact: [
+      'LLM cost scales with distinct issue clusters, not review volume',
+      'Client-side MiniLM embeddings catch paraphrases the keyword layer misses',
+      'Byte-level format detection prevents garbage from mislabeled file extensions',
+      'Every layer degrades gracefully — offline embeddings or failed API calls never break the app',
+    ],
+    stack: ['React 18', 'Vite', 'Express', 'Groq API', '@xenova/transformers', 'Tesseract.js'],
+    architecture: ['File Ingest', '→', 'Keyword+Embed', '→', 'Clustering', '→', 'LLM Labeling', '→', 'Dashboard'],
+    github: 'https://github.com/Sam1377/ReviewAnalysis_copilot',
+    featured: true,
+  },
 ];
 
 function ArchDiagram({ nodes, color }: { nodes: string[]; color: string }) {
