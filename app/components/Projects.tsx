@@ -20,7 +20,7 @@ const projects = [
     stack: ['Apache Kafka', 'PySpark', 'Databricks', 'Delta Lake', 'Python', 'SQL'],
     architecture: ['Kafka', '→', 'Bronze', '→', 'Silver', '→', 'Gold', '→', 'BI'],
     github: 'https://github.com/Sam1377/StockMarket_Data_Pipeline',
-    featured: true,
+    featured: false,
   },
   {
     id: 'spotify', number: '02',
@@ -38,7 +38,7 @@ const projects = [
     stack: ['AWS Lambda', 'Amazon S3', 'AWS Glue', 'Amazon Athena', 'Apache Airflow', 'Python'],
     architecture: ['Spotify API', '→', 'Lambda', '→', 'S3', '→', 'Glue', '→', 'Athena'],
     github: 'https://github.com/Sam1377/Spotify_Data_Pipeline',
-    featured: true,
+    featured: false,
   },
   {
     id: 'nexus', number: '03',
@@ -74,7 +74,7 @@ const projects = [
     stack: ['Next.js 14', 'FastAPI', 'TypeScript', 'Groq', 'ChromaDB', 'Framer Motion'],
     architecture: ['Resume/JD', '→', 'Gap Analysis', '→', 'Flight Plan', '→', 'Mock Interview', '→', 'Debrief'],
     github: 'https://github.com/Sam1377/aeroprep-ai',
-    featured: true,
+    featured: false,
   },
   {
     id: 'reviews', number: '05',
@@ -92,7 +92,7 @@ const projects = [
     stack: ['React 18', 'Vite', 'Express', 'Groq API', '@xenova/transformers', 'Tesseract.js'],
     architecture: ['File Ingest', '→', 'Keyword+Embed', '→', 'Clustering', '→', 'LLM Labeling', '→', 'Dashboard'],
     github: 'https://github.com/Sam1377/ReviewAnalysis_copilot',
-    featured: true,
+    featured: false,
   },
 ];
 
