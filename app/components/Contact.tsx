@@ -47,7 +47,6 @@ export default function Contact() {
             Let&apos;s build something<br /><span className="gradient-text">extraordinary</span>
           </h2>
           <p className="text-slate-500 mx-auto leading-relaxed text-center px-4" style={{ fontSize: '15px', maxWidth: '440px', width: '100%' }}>
-            Open to data engineering roles, full-stack opportunities, AI/PM roles, and interesting collaborations.
           </p>
         </motion.div>
 
